@@ -47,7 +47,7 @@
                      </div>
                  </div>
                  <div class="modal-footer">
-                     <button type="button" class="btn btn-dark">Submit</button>
+                     <button type="submit" class="btn btn-dark">Submit</button>
                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                      <!-- 2 input fields first for adding and next for updating, deleting or viewing profile -->
                      <input type="hidden" name="action" value="adduser">
