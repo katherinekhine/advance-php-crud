@@ -1,5 +1,5 @@
- <div class="modal fade" id="usermodal">
-     <div class="modal-dialog">
+ <div class="modal fade" id="usermodal" role="dialog">
+     <div class="modal-dialog" role="document">
          <div class="modal-content">
              <div class="modal-header">
                  <h1 class="modal-title fs-5" id="exampleModalLabel">Adding or Updating Users</h1>

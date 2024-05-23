@@ -1,8 +1,8 @@
 $(document).ready(function () {
-  //adding users
+  // Adding users
   $(document).on("submit", "#addform", function (e) {
     e.preventDefault();
-    //ajax
+    // AJAX request
     $.ajax({
       url: "/php_advance_crud/ajax.php",
       type: "POST",
@@ -11,15 +11,24 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       beforeSend: function () {
-        console.log("Wait...Data is loading");
+        console.log("Wait... Data is loading");
       },
       success: function (response) {
-        console.log(response);
+        console.log("AJAX Success:", response);
+        if (response) {
+          console.log("Response received. Hiding modal and resetting form.");
+          $("#usermodal").modal("hide");
+          console.log("Modal hidden.");
+          $("#addform")[0].reset();
+          console.log("Form reset.");
+        } else {
+          console.log("Empty response received.");
+        }
       },
-      error: function (request, error) {
-        console.log(arguments);
-        console.log("Error" + error);
+      error: function (xhr, status, error) {
+        console.log("AJAX error:", status, error);
       },
     });
   });
+  // get users functions
 });

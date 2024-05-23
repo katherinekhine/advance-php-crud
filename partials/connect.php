@@ -6,15 +6,16 @@ class Database
     private $dbname = "advance_php_crud";
     protected $conn;
 
-    //constructor
-    public function _construct()
+    // Constructor
+    public function __construct()
     {
         try {
-            $dsn = "mysql:host={$this->dbserver}; dbname={$this->dbname}; charset=utf8";
-            // $options = array(PDO::ATTR_PERSISTENT);
+            $dsn = "mysql:host={$this->dbserver};dbname={$this->dbname};charset=utf8";
             $this->conn = new PDO($dsn, $this->dbuser);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            echo "Connection Error" . $e->getMessage();
+            echo "Connection Error: " . $e->getMessage();
+            exit; // Exit the script if connection fails
         }
     }
 }
